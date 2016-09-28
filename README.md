@@ -1,13 +1,13 @@
-module-payson-opencart-2-2
+module-payson-opencart-2-3
 ========================
 
-Module for OpenCart 2.2.x.x implementing Payson
+Module for OpenCart 2.3.0.x implementing Payson
 
 # Payson OpenCart Module
 
 ## Description
 
-Module for OpenCart 2.2.x implementing Payson
+Module for OpenCart 2.3.0.x implementing Payson
 
 ## Installation
 
