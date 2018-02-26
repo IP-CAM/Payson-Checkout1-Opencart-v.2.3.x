@@ -7,7 +7,7 @@ class ControllerExtensionPaymentPaysondirect extends Controller {
     private $isInvoice;
     private $data = array();
 
-    const MODULE_VERSION = 'Aion_2.0.0.0';
+    const MODULE_VERSION = 'Aion_2.0.0.1';
 
     function __construct($registry) {
         parent::__construct($registry);
@@ -148,7 +148,7 @@ class ControllerExtensionPaymentPaysondirect extends Controller {
 
         $amount = $paymentDetails->getAmount();
 
-        $total = $amount += $this->getInvoiceFee();
+   		$total = $amount;
 
 
         $this->storeIPNResponse($paymentDetails, $orderId);
