@@ -71,8 +71,8 @@ class ModelExtensionPaymentPaysondirect extends Model {
 
             $method_data = array(
                 'code' => 'paysondirect',
-                'title' => 'Payson All in One<br />',
-                'terms' => $title,
+                'title' => '<img src="catalog/view/image/payment/p_payment_payson.png"> Payson All in One<br />',
+                'terms' => '',
                 'sort_order' => $this->config->get('paysondirect_sort_order')
             );
         }
