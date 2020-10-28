@@ -14,7 +14,7 @@ class ControllerExtensionPaymentPaysondirect extends Controller {
 
         //Load the settings model. You can also add any other models you want to load here.
         $this->load->model('setting/setting');
-        //Save the settings if the user has submitted the admin form (ie if someone has pressed save).		
+        //Save the settings if the user has submitted the admin form (ie if someone has pressed save).      
         if (($this->request->server['REQUEST_METHOD'] == 'POST')&& $this->validate()) {
             $this->model_setting_setting->editSetting('paysondirect', $this->request->post);
 
@@ -41,18 +41,10 @@ class ControllerExtensionPaymentPaysondirect extends Controller {
         $data['payment_method_card'] = $this->language->get('payment_method_card');
         $data['payment_method_bank'] = $this->language->get('payment_method_bank');
         $data['payment_method_inv'] = $this->language->get('payment_method_inv');
-        $data['payment_method_sms'] = $this->language->get('payment_method_sms');
-        $data['payment_method_sms_bank'] = $this->language->get('payment_method_sms_bank');
         $data['payment_method_card_bank'] = $this->language->get('payment_method_card_bank');
-        $data['payment_method_sms_card'] = $this->language->get('payment_method_sms_card');
-        $data['payment_method_card_bank_sms'] = $this->language->get('payment_method_card_bank_sms');
-        $data['payment_method_sms_inv'] = $this->language->get('payment_method_sms_inv');
         $data['payment_method_bank_inv'] = $this->language->get('payment_method_bank_inv');
-        $data['payment_method_card_inv'] = $this->language->get('payment_method_card_inv');
-        $data['payment_method_sms_bank_inv'] = $this->language->get('payment_method_sms_bank_inv');
-        $data['payment_method_sms_card_inv'] = $this->language->get('payment_method_sms_card_inv');       
-        $data['payment_method_inv_car_ban'] = $this->language->get('payment_method_inv_car_ban');
-        $data['payment_method_sms_bank_card_inv'] = $this->language->get('payment_method_sms_bank_card_inv');       
+        $data['payment_method_card_inv'] = $this->language->get('payment_method_card_inv');      
+        $data['payment_method_inv_car_ban'] = $this->language->get('payment_method_inv_car_ban');  
         $data['payment_method_none']= $this->language->get('payment_method_none');
         
         $data['paysondirect_method_mode'] = $this->language->get('payment_method_mode');
@@ -78,10 +70,7 @@ class ControllerExtensionPaymentPaysondirect extends Controller {
 
         $data['button_save'] = $this->language->get('button_save');
         $data['button_cancel'] = $this->language->get('button_cancel');
-        
-        
-        
-        
+         
         $data['help_method_mode'] = $this->language->get('help_method_mode');
         $data['help_user_name'] = $this->language->get('help_user_name');
         $data['help_agent_id'] = $this->language->get('help_agent_id');
@@ -253,10 +242,10 @@ class ControllerExtensionPaymentPaysondirect extends Controller {
         }       
         
         $data['header'] = $this->load->controller('common/header');
-	$data['column_left'] = $this->load->controller('common/column_left');
-	$data['footer'] = $this->load->controller('common/footer');
+    $data['column_left'] = $this->load->controller('common/column_left');
+    $data['footer'] = $this->load->controller('common/footer');
 
-	$this->response->setOutput($this->load->view('extension/payment/paysondirect.tpl', $data));
+    $this->response->setOutput($this->load->view('extension/payment/paysondirect.tpl', $data));
     }
 
     private function validate() {
@@ -275,9 +264,7 @@ class ControllerExtensionPaymentPaysondirect extends Controller {
             }
             if (!isset($this->request->post['paysondirect_md5']) || !$this->request->post['paysondirect_md5']) {
                 $this->error['md5'] = $this->language->get('error_md5');
-            }
-            
-            
+            }      
             
         }
         if (!$this->request->post['paysondirect_ignored_order_totals']) {
@@ -302,11 +289,10 @@ class ControllerExtensionPaymentPaysondirect extends Controller {
     }
     
     public function install() {           
-		$this->load->model('extension/payment/paysondirect');
+        $this->load->model('extension/payment/paysondirect');
 
-		$this->model_extension_payment_paysondirect->install();
+        $this->model_extension_payment_paysondirect->install();
     }
 
 }
-
 ?>

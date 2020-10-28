@@ -7,7 +7,7 @@ $_['heading_title'] = 'Payson All in One';
 
 // Text
 $_['text_modul_name'] = 'Payson_Allinone';
-$_['text_modul_version'] = '2.0.0.2';
+$_['text_modul_version'] = '2.0.0.3';
 $_['text_payment'] = 'Payment';
 $_['text_success'] = 'Success: You have modified Payson All in One payment module!';
 $_['text_paysondirect'] = '<a onclick="window.open(\'https://www.payson.se/tj%C3%A4nster/ta-betalt\');"><img src="view/image/payment/Allinone.png" alt="Payson" title="Payson" /></a>';
@@ -29,18 +29,10 @@ $_['payment_method_none']                = '------------------';
 $_['payment_method_card']               = 'CREDITCARD';
 $_['payment_method_bank']               = 'BANK';
 $_['payment_method_inv']                = 'INVOICE';
-$_['payment_method_sms']                = 'SMS';
-$_['payment_method_sms_bank']           = 'SMS / BANK';
 $_['payment_method_card_bank']          = 'CREDITCARD / BANK';
-$_['payment_method_sms_card']           = 'CREDITCARD / SMS';
-$_['payment_method_card_bank_sms']      = 'CREDITCARD / BANK / SMS';
-$_['payment_method_sms_inv']            = 'INVOICE / SMS';
 $_['payment_method_bank_inv']           = 'INVOICE / BANK';
 $_['payment_method_card_inv']           = 'INVOICE / CREDITCARD';
-$_['payment_method_sms_bank_inv']       = 'INVOICE / SMS / BANK';
-$_['payment_method_sms_card_inv']       = 'INVOICE / SMS / CREDITCARD';
 $_['payment_method_inv_car_ban']        = 'INVOICE / CREDITCARD / BANK';
-$_['payment_method_sms_bank_card_inv']  = 'INVOICE / SMS / CREDITCARD / BANK';
 
 $_['secure_word'] = 'Secure word';
 

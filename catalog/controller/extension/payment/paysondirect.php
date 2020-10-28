@@ -7,7 +7,7 @@ class ControllerExtensionPaymentPaysondirect extends Controller {
     private $isInvoice;
     private $data = array();
 
-    const MODULE_VERSION = 'Aion_2.0.0.2';
+    const MODULE_VERSION = 'Aion_2.0.0.3';
 
     function __construct($registry) {
         parent::__construct($registry);
@@ -119,13 +119,13 @@ class ControllerExtensionPaymentPaysondirect extends Controller {
         $this->load->language('extension/payment/paysondirect');
         $this->load->model('checkout/order');
         $this->load->language('extension/total/paysoninvoice_fee');
-		$fee = $this->config->get('paysoninvoice_fee_fee');
+        $fee = $this->config->get('paysoninvoice_fee_fee');
         if ($this->config->get('paysoninvoice_fee_tax_class_id')) {
-			$tax = $this->config->get('paysoninvoice_fee_tax_class_id');
-			$tax_rule_id = $this->db->query("SELECT tax_rate_id FROM `" . DB_PREFIX . "tax_rule` where  tax_class_id='" . $tax . "'");
-			$invoiceFeeTax = $this->db->query("SELECT rate FROM `" . DB_PREFIX . "tax_rate` where  tax_rate_id='" . $tax_rule_id->row['tax_rate_id'] . "'");
-			$invoiceFeeTax = ($invoiceFeeTax->row['rate'] / 100) + 1;
-			$fee *= $invoiceFeeTax;
+            $tax = $this->config->get('paysoninvoice_fee_tax_class_id');
+            $tax_rule_id = $this->db->query("SELECT tax_rate_id FROM `" . DB_PREFIX . "tax_rule` where  tax_class_id='" . $tax . "'");
+            $invoiceFeeTax = $this->db->query("SELECT rate FROM `" . DB_PREFIX . "tax_rate` where  tax_rate_id='" . $tax_rule_id->row['tax_rate_id'] . "'");
+            $invoiceFeeTax = ($invoiceFeeTax->row['rate'] / 100) + 1;
+            $fee *= $invoiceFeeTax;
         }
         return $fee;
     }
@@ -149,7 +149,7 @@ class ControllerExtensionPaymentPaysondirect extends Controller {
 
         $amount = $paymentDetails->getAmount();
 
-   		$total = $amount;
+        $total = $amount;
 
 
         $this->storeIPNResponse($paymentDetails, $orderId);
@@ -219,20 +219,12 @@ class ControllerExtensionPaymentPaysondirect extends Controller {
             1 => array('card'),
             2 => array('bank'),
             3 => array('invoice'),
-            4 => array('sms'),
-            5 => array('sms', 'bank'),
-            6 => array('sms', 'card'),
-            7 => array('bank', 'card'),
-            8 => array('bank', 'card', 'sms'),
-            9 => array('sms', 'invoice'),
-            10 => array('bank', 'invoice'),
-            11 => array('card', 'invoice'),
-            12 => array('sms', 'bank', 'invoice'),
-            13 => array('sms', 'card', 'invoice'),
-            14 => array('bank', 'card', 'invoice'),
-            15 => array('sms', 'bank', 'card', 'invoice'),
+            4 => array('bank', 'card'),
+            5 => array('bank', 'invoice'),
+            6 => array('card', 'invoice'),
+            7 => array('bank', 'card', 'invoice'),
         );
-        $optsStrings = array('' => FundingConstraint::NONE, 'bank' => FundingConstraint::BANK, 'card' => FundingConstraint::CREDITCARD, 'invoice' => FundingConstraint::INVOICE,  'sms' => FundingConstraint::SMS);
+        $optsStrings = array('' => FundingConstraint::NONE, 'bank' => FundingConstraint::BANK, 'card' => FundingConstraint::CREDITCARD, 'invoice' => FundingConstraint::INVOICE);
         if ($opts[$paymentMethod]) {
             foreach ($opts[$paymentMethod] as $methodStringName) {
                 $constraints[] = $optsStrings[$methodStringName];
@@ -388,7 +380,7 @@ class ControllerExtensionPaymentPaysondirect extends Controller {
                     $optionsArray[] = $option['name'] . ': ' . $option['value'];
                 }
             }
-				
+                
             $productTitle = $product['name'];
 
             if (!empty($optionsArray))
@@ -396,7 +388,7 @@ class ControllerExtensionPaymentPaysondirect extends Controller {
 
             $productTitle = (strlen($productTitle) > 80 ? substr($productTitle, 0, strpos($productTitle, ' ', 80)) : $productTitle);
             
-				
+                
             $product_price = $this->currency->format($product['price'] * 100, $order_data['currency_code'], $order_data['currency_value'], false) / 100;
 
             $this->data['order_items'][] = new OrderItem(html_entity_decode($productTitle, ENT_QUOTES, 'UTF-8'), $product_price, $product['quantity'], $product['tax_rate'], $product['model']);
@@ -597,7 +589,5 @@ class ControllerExtensionPaymentPaysondirect extends Controller {
         echo ($error_code);
         exit;
     }
-
 }
-
 ?>

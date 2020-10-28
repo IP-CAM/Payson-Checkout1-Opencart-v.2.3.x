@@ -36,7 +36,6 @@
                         </div>
                     </div>
 
-
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="input-sort-order"><?php echo $entry_sort_order; ?></label>
                         <div class="col-sm-10">
@@ -108,21 +107,15 @@
                                 <option value="1" <?php echo ($paysondirect_payment_method == 1 ? 'selected="selected"' : '""') . '>' . $payment_method_card; ?></option>
                                 <option value="2" <?php echo ($paysondirect_payment_method == 2 ? 'selected="selected"' : '""') . '>' . $payment_method_bank; ?></option>
                                 <option value="3" <?php echo ($paysondirect_payment_method == 3 ? 'selected="selected"' : '""') . '>' . $payment_method_inv; ?></option>                                
-                                <option value="4" <?php echo ($paysondirect_payment_method == 4 ? 'selected="selected"' : '""') . '>' . $payment_method_sms; ?></option>
-                                <option value="5" <?php echo ($paysondirect_payment_method == 5 ? 'selected="selected"' : '""') . '>' . $payment_method_sms_bank; ?></option>
-                                <option value="6" <?php echo ($paysondirect_payment_method == 6 ? 'selected="selected"' : '""') . '>' . $payment_method_sms_card; ?></option>
-                                <option value="7" <?php echo ($paysondirect_payment_method == 7 ? 'selected="selected"' : '""') . '>' . $payment_method_card_bank; ?></option>
-                                <option value="8" <?php echo ($paysondirect_payment_method == 8 ? 'selected="selected"' : '""') . '>' . $payment_method_card_bank_sms; ?></option>
-                                <option value="9" <?php echo ($paysondirect_payment_method == 9 ? 'selected="selected"' : '""') . '>' . $payment_method_sms_inv; ?></option>
-                                <option value="10" <?php echo ($paysondirect_payment_method == 10 ? 'selected="selected"' : '""') . '>' . $payment_method_bank_inv; ?></option>
-                                <option value="11" <?php echo ($paysondirect_payment_method == 11 ? 'selected="selected"' : '""') . '>' . $payment_method_card_inv; ?></option>                                
-                                <option value="12" <?php echo ($paysondirect_payment_method == 12 ? 'selected="selected"' : '""') . '>' . $payment_method_sms_bank_inv; ?></option>
-                                <option value="13" <?php echo ($paysondirect_payment_method == 13 ? 'selected="selected"' : '""') . '>' . $payment_method_sms_card_inv; ?></option>
-                                <option value="14" <?php echo ($paysondirect_payment_method == 14 ? 'selected="selected"' : '""') . '>' . $payment_method_inv_car_ban; ?></option>
-                                <option value="15" <?php echo ($paysondirect_payment_method == 15 ? 'selected="selected"' : '""') . '>' . $payment_method_sms_bank_card_inv; ?></option>
+                                <option value="4" <?php echo ($paysondirect_payment_method == 4 ? 'selected="selected"' : '""') . '>' . $payment_method_card_bank; ?></option>
+                                <option value="5" <?php echo ($paysondirect_payment_method == 5 ? 'selected="selected"' : '""') . '>' . $payment_method_bank_inv; ?></option>
+                                <option value="6" <?php echo ($paysondirect_payment_method == 6 ? 'selected="selected"' : '""') . '>' . $payment_method_card_inv; ?></option>                                
+                                <option value="7" <?php echo ($paysondirect_payment_method == 7 ? 'selected="selected"' : '""') . '>' . $payment_method_inv_car_ban; ?></option>
+
                             </select>
                         </div>
                     </div>
+                      
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="input-secure-word"><span data-toggle="tooltip" title="<?php echo $help_secure_word; ?>"><?php echo $secure_word; ?></span></label>
                         <div class="col-sm-10">
@@ -161,7 +154,6 @@
                             </select>
                         </div>
                     </div>
-
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="input-order-status">Invoice order status</label>
@@ -211,12 +203,9 @@
                             <input type="text" name="paysondirect_ignored_order_totals" value="<?php echo ($paysondirect_ignored_order_totals == '' ? '' : $paysondirect_ignored_order_totals); ?>" placeholder="<?php echo $entry_totals_to_ignore; ?>" id="input-ignored-order-totals" class="form-control" />
                             <?php if ($error_ignored_order_totals) { ?>
                             <div class="text-danger"><?php echo $error_ignored_order_totals; ?></div>
-                            <?php } ?></div>
+                            <?php } ?>
+                        </div>
                     </div>  
-
-
-
-
                 </form>         
             </div>
         </div>
