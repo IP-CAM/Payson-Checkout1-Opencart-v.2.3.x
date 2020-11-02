@@ -7,7 +7,7 @@ class ControllerExtensionPaymentPaysondirect extends Controller {
     private $isInvoice;
     private $data = array();
 
-    const MODULE_VERSION = 'Aion_2.0.0.4';
+    const MODULE_VERSION = 'Aion_2.0.0.5';
 
     function __construct($registry) {
         parent::__construct($registry);
