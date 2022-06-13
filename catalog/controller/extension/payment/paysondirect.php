@@ -175,7 +175,7 @@ class ControllerExtensionPaymentPaysondirect extends Controller {
                         . "'" . 2 . "')");
 
                 $this->db->query("UPDATE `" . DB_PREFIX . "order_total` SET
-                                value  = '" . (int) $total . "'
+                                value  = '" . (float) $total . "'
                                 WHERE order_id      = '" . (int) $orderId . "' 
                                 and code = 'total'");
             }
